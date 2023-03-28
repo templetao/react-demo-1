@@ -7,9 +7,10 @@ class App extends React.Component {
   }
 
   onClick = () => {
-    this.setState({
-      x: this.state.x + 1
-    })
+    // this.setState({
+    //   x: this.state.x + 1
+    // })
+    this.setState(state => ({x: state.x + 1}))
   }
 
   render() {
