@@ -1,39 +1,30 @@
 import React from 'react'
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props)
-    this.state = {x: 1}
+    this.state = {n: 1}
   }
 
   onClick = () => {
-    // this.setState({
-    //   x: this.state.x + 1
-    // })
-    this.setState(state => ({x: state.x + 1}))
+    this.setState(state => ({n: state.n + 1}))
+    this.setState(state => ({n: state.n - 1}))
   }
 
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   return nextState.n !== this.state.n;
+  // }
+
   render() {
+    console.log('render 了一次')
     return (
       <div className="App">
-        App
-        <button onClick={this.onClick}>+1</button>
-        <B name={this.state.x}/>
+        {this.state.n}
+        <button onClick={this.onClick}>+1-1</button>
       </div>
     )
   }
 }
 
-class B extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <div>{this.props.name}</div>
-    )
-  }
-}
 
 export default App
