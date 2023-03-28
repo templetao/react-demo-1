@@ -3,28 +3,34 @@ import React from 'react'
 class App extends React.PureComponent {
   constructor(props) {
     super(props)
-    this.state = {n: 1}
+    this.state = {
+      n: 1,
+      array: [1, 2, 3]
+    }
   }
 
   onClick = () => {
     this.setState(state => ({n: state.n + 1}))
-    this.setState(state => ({n: state.n - 1}))
   }
-
-  // shouldComponentUpdate(nextProps, nextState, nextContext) {
-  //   return nextState.n !== this.state.n;
-  // }
 
   render() {
-    console.log('render 了一次')
-    return (
-      <div className="App">
-        {this.state.n}
-        <button onClick={this.onClick}>+1-1</button>
-      </div>
-    )
+    return this.state.array.map(n => <div key={n}>{n}</div>)
+
+    // let result = []
+    // for (let i = 0; i < this.state.array.length; i++) {
+    //   result.push(this.state.array[i])
+    // }
+    // return result
+
+    // return (
+    //   <>
+    //     {this.state.n % 2 === 0 ?
+    //       <div>偶数</div> :
+    //       <span>奇数</span>}
+    //     <button onClick={this.onClick}>+1</button>
+    //   </>
+    // )
   }
 }
-
 
 export default App
