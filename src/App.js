@@ -1,36 +1,36 @@
-import React from 'react'
+import {React, useState} from 'react'
 
-class App extends React.PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
-      n: 1,
-      array: [1, 2, 3]
-    }
+// class App extends React.PureComponent {
+//   constructor(props) {
+//     super(props)
+//     this.state = {n: 1}
+//   }
+//
+//   onClick = () => {
+//     this.setState(state => ({n: state.n + 1}))
+//   }
+//
+//   render() {
+//     return (
+//       <div>
+//         {this.state.n}
+//         <button onClick={this.onClick}>+1</button>
+//       </div>
+//     )
+//   }
+// }
+
+const App = props => {
+  const [n, setN] = useState(0)
+  const onClick = () => {
+    setN(n + 1)
   }
-
-  onClick = () => {
-    this.setState(state => ({n: state.n + 1}))
-  }
-
-  render() {
-    return this.state.array.map(n => <div key={n}>{n}</div>)
-
-    // let result = []
-    // for (let i = 0; i < this.state.array.length; i++) {
-    //   result.push(this.state.array[i])
-    // }
-    // return result
-
-    // return (
-    //   <>
-    //     {this.state.n % 2 === 0 ?
-    //       <div>偶数</div> :
-    //       <span>奇数</span>}
-    //     <button onClick={this.onClick}>+1</button>
-    //   </>
-    // )
-  }
+  return (
+    <div>
+      {n}
+      <button onClick={onClick}>+1</button>
+    </div>
+  )
 }
 
 export default App
