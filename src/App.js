@@ -27,6 +27,7 @@ const App = props => {
     <div>
       {n}
       <button onClick={onClick}>+1</button>
+      <div>hh</div>
     </div>
   )
 }
